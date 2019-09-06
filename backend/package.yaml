@@ -1,0 +1,60 @@
+name:                backend
+version:             0.1.0
+github:              "ibarrae/backend"
+license:             BSD3
+author:              "Author name here"
+maintainer:          "eibarra1992@hotmail.com"
+copyright:           "2019 Esteban Ibarra"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+description:         Please see the README on GitHub at <https://github.com/ibarrae/backend#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+  dependencies:
+    - aeson
+    - servant
+    - servant-server
+    - text
+    - mtl
+    - servant-docs
+    - extensible-sp
+
+ghc-options:
+  -Wall
+  -Werror
+  -Wincomplete-uni-patterns
+  -Wincomplete-record-updates
+  -Wcompat
+  -Widentities
+  -Wredundant-constraints
+  -Wmissing-export-lists
+  -Wpartial-fields
+executables:
+  backend:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - backend
+    - warp
+
+tests:
+  backend-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - backend
