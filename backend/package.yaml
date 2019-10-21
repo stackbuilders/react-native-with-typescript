@@ -24,7 +24,6 @@ library:
     - text
     - mtl
     - servant-docs
-    - extensible-sp
 
 ghc-options:
   -Wall

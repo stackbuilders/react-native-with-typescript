@@ -8,6 +8,7 @@ module Domains.User.Types
        , UpdateUser(..)
        , Hobby(..)
        , UserType(..)
+       , defaultUsers
        ) where
 
 import           Data.Aeson            (FromJSON (..), ToJSON (..),
@@ -76,3 +77,9 @@ instance ToJSON Hobby where
     Basketball  -> String "basketball"
     Baseball    -> String "baseball"
     Other other -> String other
+
+defaultUsers :: [User]
+defaultUsers =
+  [ User 1 "Esteban" 27 [Basketball, Baseball] Normal
+  , User 2 "Xavier" 40 [] Admin
+  ]
